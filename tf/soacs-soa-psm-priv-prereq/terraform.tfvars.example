@@ -5,6 +5,8 @@ prefix = ""
 
 tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaa"
 user_ocid = "ocid1.user.oc1..aaaaaaaa"
+
+# Parent compartment for the SOA compartment
 compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa"
 
 api_fingerprint = ""
