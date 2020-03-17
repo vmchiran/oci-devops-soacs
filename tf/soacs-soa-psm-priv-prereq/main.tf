@@ -282,81 +282,81 @@ resource "oci_objectstorage_bucket" "soa_bucket" {
   access_type = "NoPublicAccess"
 }
 
-# Create the Bastion
-resource "oci_core_instance" "bastion" {
-  # Required
-  availability_domain = data.oci_identity_availability_domain.ad.name
-  compartment_id      = oci_identity_compartment.soacs.id
-  shape               = var.bastion_shape
+# # Create the Bastion
+# resource "oci_core_instance" "bastion" {
+#   # Required
+#   availability_domain = data.oci_identity_availability_domain.ad.name
+#   compartment_id      = oci_identity_compartment.soacs.id
+#   shape               = var.bastion_shape
 
-  # display_name = "vch-build-server"
-  display_name = "${var.prefix}-${var.bastion_name}"
+#   # display_name = "vch-build-server"
+#   display_name = "${var.prefix}-${var.bastion_name}"
 
-  # Optional
-  create_vnic_details {
-    # Required
-    subnet_id = oci_core_subnet.soa_bastion_subnet.id
+#   # Optional
+#   create_vnic_details {
+#     # Required
+#     subnet_id = oci_core_subnet.soa_bastion_subnet.id
 
-    # Optional
-    assign_public_ip = true
-  }
+#     # Optional
+#     assign_public_ip = true
+#   }
 
-  source_details {
-    # Required
-    source_type = "image"
-    source_id   = var.imageocids[var.region]
+#   source_details {
+#     # Required
+#     source_type = "image"
+#     source_id   = var.imageocids[var.region]
 
-    # Apply this to set the size of the boot volume that's created for this instance.
-    # Otherwise, the default boot volume size of the image is used.
-    # This should only be specified when source_type is set to "image".
-    #boot_volume_size_in_gbs = "60"
-  }
+#     # Apply this to set the size of the boot volume that's created for this instance.
+#     # Otherwise, the default boot volume size of the image is used.
+#     # This should only be specified when source_type is set to "image".
+#     #boot_volume_size_in_gbs = "60"
+#   }
 
-  # Apply the following flag only if you wish to preserve the attached boot volume upon destroying this instance
-  # Setting this and destroying the instance will result in a boot volume that should be managed outside of this config.
-  # When changing this value, make sure to run 'terraform apply' so that it takes effect before the resource is destroyed.
-  #preserve_boot_volume = true
+#   # Apply the following flag only if you wish to preserve the attached boot volume upon destroying this instance
+#   # Setting this and destroying the instance will result in a boot volume that should be managed outside of this config.
+#   # When changing this value, make sure to run 'terraform apply' so that it takes effect before the resource is destroyed.
+#   #preserve_boot_volume = true
 
-  metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key_path)
-    # user_data           = base64encode(file(var.BootStrapFile))
-  }
-}
+#   metadata = {
+#     ssh_authorized_keys = file(var.ssh_public_key_path)
+#     # user_data           = base64encode(file(var.BootStrapFile))
+#   }
+# }
 
-# Create the DBSystem
-resource "oci_database_db_system" "soa_db_system" {
-  #Required
-  availability_domain = data.oci_identity_availability_domain.ad.name
-  compartment_id      = oci_identity_compartment.soacs.id
-  database_edition    = var.db_system_edition
+# # Create the DBSystem
+# resource "oci_database_db_system" "soa_db_system" {
+#   #Required
+#   availability_domain = data.oci_identity_availability_domain.ad.name
+#   compartment_id      = oci_identity_compartment.soacs.id
+#   database_edition    = var.db_system_edition
 
-  db_home {
-    #Required
-    database {
-      #Required
-      admin_password = var.db_admin_password
+#   db_home {
+#     #Required
+#     database {
+#       #Required
+#       admin_password = var.db_admin_password
 
-      #Optional
-      db_backup_config {
-        auto_backup_enabled = false
-      }
+#       #Optional
+#       db_backup_config {
+#         auto_backup_enabled = false
+#       }
 
-      db_name = var.soa_db1_name
-    }
+#       db_name = var.soa_db1_name
+#     }
 
-    #Optional
-    db_version = var.db_version
-  }
+#     #Optional
+#     db_version = var.db_version
+#   }
 
-  hostname        = var.soa_db_hostname
-  shape           = var.db_system_shape
-  ssh_public_keys = [file(var.ssh_public_key_path)]
-  subnet_id       = oci_core_subnet.soa_private_subnet.id
+#   hostname        = var.soa_db_hostname
+#   shape           = var.db_system_shape
+#   ssh_public_keys = [file(var.ssh_public_key_path)]
+#   subnet_id       = oci_core_subnet.soa_private_subnet.id
 
-  #Optional
-  display_name            = "${var.prefix}-${var.soa_db_system_display_name}"
-  #Initial data storage size (in GB) must be one of [256, 512, 1024, 2048, 4096, 6144, 8192, 10240, 12288, 14336, 16384, 18432, 20480, 22528, 24576, 26624, 28672, 30720, 32768, 34816, 36864, 38912, 40960]
-  data_storage_size_in_gb = var.data_storage_size_in_gb
-  license_model           = var.license_model
-  node_count              = data.oci_database_db_system_shapes.soa_db_system_shapes.db_system_shapes[0]["minimum_node_count"]
-}
+#   #Optional
+#   display_name            = "${var.prefix}-${var.soa_db_system_display_name}"
+#   #Initial data storage size (in GB) must be one of [256, 512, 1024, 2048, 4096, 6144, 8192, 10240, 12288, 14336, 16384, 18432, 20480, 22528, 24576, 26624, 28672, 30720, 32768, 34816, 36864, 38912, 40960]
+#   data_storage_size_in_gb = var.data_storage_size_in_gb
+#   license_model           = var.license_model
+#   node_count              = data.oci_database_db_system_shapes.soa_db_system_shapes.db_system_shapes[0]["minimum_node_count"]
+# }
