@@ -1,0 +1,17 @@
+# Vagrant generated items
+.vagrant
+# Installers and packages
+*.ear
+*.jar
+*.rpm
+*.zip
+*.gz
+# Terraform secrets
+*.tfvars
+# Keys
+*.pem
+*.pub
+*.ppk
+# Some other file extensions
+*.bak
+*.priv

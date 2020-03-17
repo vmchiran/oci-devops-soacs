@@ -1,0 +1,46 @@
+# Prefix. E.g. dev, test, prod
+prefix = ""
+
+# ==> identity and access parameters
+
+tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaa"
+user_ocid = "ocid1.user.oc1..aaaaaaaa"
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa"
+
+api_fingerprint = ""
+api_private_key_path=""
+ssh_public_key_path=""
+
+# E.g. eu-frankfurt-1
+region = ""
+
+# Availability Domain
+ad_number = 
+
+# Compartment for SOACS prereq. Prefix added at apply.
+compartment_name = "soa-psm-private"
+
+# VCN. Prefix added at apply.
+vcn_display_name = "soa-vcn"
+vcn_dns_label = "soavcn"
+vcn_cidr = "10.10.0.0/16"
+subnet_bastion_cidr = "10.10.1.0/24"
+subnet_private_cidr = "10.10.2.0/24"
+subnet_lb_private_cidr = "10.10.4.0/24"
+
+# Object Storage. Prefix added at apply.
+soa_bucket_name = "soa-bucket"
+
+# DBSystem. Prefix added at apply.
+soa_db_system_display_name = "soa-db"
+# OCI DB versions supported: 19c (e.g. 19.6.0.0), 18c (e.g. 18.9.0.0), 12.2.0.1, 12.1.0.2
+db_version = "19.6.0.0"
+soa_db1_name = "soadb1"
+db_admin_password = "BEstrO0ng_#12"
+data_storage_size_in_gb = "512"
+soa_db_hostname = "soadb"
+license_model = "BRING_YOUR_OWN_LICENSE"
+
+# Bastion. Prefix added at apply.
+bastion_name = "soa-bastion"
+bastion_shape = "VM.Standard2.1"

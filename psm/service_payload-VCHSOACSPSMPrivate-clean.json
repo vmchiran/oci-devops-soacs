@@ -1,0 +1,42 @@
+{
+  "enableAdapters": "false",
+  "subnet": "ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaa",
+  "enableAdminConsole": "true",
+  "components": {
+    "WLS": {
+      "adminUserName": "weblogic",
+      "shape": "VM.Standard2.1",
+      "isOciRacDb": "false",
+      "dbType": "OCINativeDB",
+      "dbaPassword": "<Fill_Here>",
+      "dbaName": "SYS",
+      "pdbServiceName": "soadb1_pdb1",
+      "connectString": "//soadb-scan.soaprivate1.vchsoavcn.oraclevcn.com:1521/soadb1_pdb1.soaprivate1.vchsoavcn.oraclevcn.com",
+      "managedServerCount": "2",
+      "adminPassword": "<Fill_Here>"
+    }
+  },
+  "availabilityDomain": "qLMB:EU-FRANKFURT-1-AD-3",
+  "purchasePack": "soaosbb2b",
+  "edition": "SUITE",
+  "vmPublicKeyText": "<Fill_Here>",
+  "serviceLevel": "PAAS",
+  "serviceName": "VCHSOACSPSMPrivate",
+  "notificationEmail": "<Fill_Here>",
+  "tags": [
+    {
+      "value": "",
+      "key": ""
+    }
+  ],
+  "serviceVersion": "12cRelease213",
+  "cloudStorageUser": "<Fill_Here>",
+  "cloudStorageContainer": "https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<Fill-namespace>/<Fill-soa-bucket-name>",
+  "enableNotification": "true",
+  "meteringFrequency": "HOURLY",
+  "cloudStoragePassword": "<Fill_Here>",
+  "serviceDescription": "SOACS Cluster on Private network. Requires manual setup for OCI LB.",
+  "region": "eu-frankfurt-1",
+  "loadBalancerOption": "None",
+  "isBYOL": "true"
+}
