@@ -1,6 +1,7 @@
 # SOACS (PSM based) on OCI
 
 # Architecture Model
+## SOACS on Private Subnet
 ![Architecture Model](soacs-psm-architecture-model.png)
 
 # References
