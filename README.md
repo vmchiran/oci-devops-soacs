@@ -1,4 +1,4 @@
-# oci-devops-public
+# SOACS (PSM based) on OCI
 
 # Architecture Model
 ![Architecture Model](soacs-psm-architecture-model.png)
