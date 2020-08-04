@@ -4,6 +4,12 @@ data "oci_identity_availability_domain" "ad" {
   ad_number      = var.ad_number
 }
 
+data "oci_identity_availability_domain" "addr" {
+  #Required
+  compartment_id = oci_identity_compartment.soacs.id
+  ad_number      = var.addr_number
+}
+
 data "oci_database_db_system_shapes" "soa_db_system_shapes" {
   availability_domain = data.oci_identity_availability_domain.ad.name
   compartment_id      = oci_identity_compartment.soacs.id

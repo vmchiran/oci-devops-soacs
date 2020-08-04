@@ -42,6 +42,9 @@ variable "region" {
 variable "ad_number" {
 }
 
+variable "addr_number" {
+}
+
 variable "compartment_name" {
 }
 
@@ -125,6 +128,15 @@ variable "db_workload" {
 
 variable "license_model" {
   default = "LICENSE_INCLUDED"
+}
+
+# DBSystem for DR
+variable "soa_dbdr_system_display_name" {
+  default = "soa-dbdr"
+}
+
+variable "dbdr_hostname" {
+  default = "soadbdr"
 }
 
 # Bastion

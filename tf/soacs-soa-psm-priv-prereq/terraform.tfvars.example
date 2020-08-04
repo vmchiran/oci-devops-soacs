@@ -10,17 +10,20 @@ user_ocid = "ocid1.user.oc1..aaaaaaaa"
 compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa"
 
 api_fingerprint = ""
-api_private_key_path=""
-ssh_public_key_path=""
+api_private_key_path = ""
+ssh_public_key_path= ""
 
 # E.g. eu-frankfurt-1
 region = ""
 
 # Availability Domain
-ad_number = 
+ad_number = 1
+
+# Availability Domain for DR
+addr_number = 2
 
 # Compartment for SOACS prereq. Prefix added at apply.
-compartment_name = "soa-psm-private"
+compartment_name = "soa-psm"
 
 # VCN. Prefix added at apply.
 vcn_display_name = "soa-vcn"
@@ -35,13 +38,19 @@ soa_bucket_name = "soa-bucket"
 
 # DBSystem. Prefix added at apply.
 soa_db_system_display_name = "soa-db"
-# OCI DB versions supported: 19c (e.g. 19.6.0.0), 18c (e.g. 18.9.0.0), 12.2.0.1, 12.1.0.2
-db_version = "19.6.0.0"
-soa_db1_name = "soadb1"
+# OCI DB versions supported: 19c (e.g. 19.7.0.0), 18c (e.g. 18.10.0.0), 12.2.0.1, 12.1.0.2
+db_version = "19.7.0.0"
+db_system_edition = "ENTERPRISE_EDITION"
+db_name = "soadb"
 db_admin_password = "BEstrO0ng_#12"
-data_storage_size_in_gb = "512"
-soa_db_hostname = "soadb"
+data_storage_size_in_gb = "256"
+db_hostname = "soadb"
 license_model = "BRING_YOUR_OWN_LICENSE"
+db_system_shape = "VM.Standard2.1"
+
+# DBSystem for DR. Prefix added at apply.
+soa_dbdr_system_display_name = "soa-db-dr"
+dbdr_hostname = "soadbdr"
 
 # Bastion. Prefix added at apply.
 bastion_name = "soa-bastion"
