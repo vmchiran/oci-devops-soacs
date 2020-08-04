@@ -72,6 +72,79 @@
 			"response": []
 		},
 		{
+			"name": "Start a Service Instance or Compute Node",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.com.oracle.oracloud.provisioning.Service+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/instancemgmt/:identityDomainId/services/SOA/instances/:serviceName/hosts/start",
+					"protocol": "https",
+					"host": [
+						"psm",
+						"europe",
+						"oraclecloud",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"paas",
+						"api",
+						"v1.1",
+						"instancemgmt",
+						":identityDomainId",
+						"services",
+						"SOA",
+						"instances",
+						":serviceName",
+						"hosts",
+						"start"
+					],
+					"variable": [
+						{
+							"key": "identityDomainId",
+							"value": "{{IDCS_ID}}"
+						},
+						{
+							"key": "serviceName",
+							"value": ""
+						}
+					]
+				},
+				"description": "https://docs.oracle.com/en/cloud/paas/soa-cloud/scsap/op-instancemgmt-identitydomainid-services-soa-instances-servicename-hosts-start-post.html"
+			},
+			"response": []
+		},
+		{
 			"name": "View the Status of an Operation by Job Id",
 			"request": {
 				"auth": {
@@ -132,7 +205,7 @@
 						},
 						{
 							"key": "jobId",
-							"value": "182186345"
+							"value": "193898713"
 						}
 					]
 				},
@@ -182,7 +255,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"enableAdapters\": \"false\",\r\n  \"subnet\": \"ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaa\",\r\n  \"enableAdminConsole\": \"true\",\r\n  \"components\": {\r\n    \"WLS\": {\r\n      \"adminUserName\": \"weblogic\",\r\n      \"shape\": \"VM.Standard2.1\",\r\n      \"isOciRacDb\": \"false\",\r\n      \"dbType\": \"OCINativeDB\",\r\n      \"dbaPassword\": \"<Fill_Here>\",\r\n      \"dbaName\": \"SYS\",\r\n      \"pdbServiceName\": \"soadb1_pdb1\",\r\n      \"connectString\": \"//soadb-scan.soaprivate1.vchsoavcn.oraclevcn.com:1521/soadb1_pdb1.soaprivate1.vchsoavcn.oraclevcn.com\",\r\n      \"managedServerCount\": \"2\",\r\n      \"adminPassword\": \"<Fill_Here>\"\r\n    }\r\n  },\r\n  \"availabilityDomain\": \"qLMB:EU-FRANKFURT-1-AD-3\",\r\n  \"purchasePack\": \"soaosbb2b\",\r\n  \"edition\": \"SUITE\",\r\n  \"vmPublicKeyText\": \"<Fill_Here>\",\r\n  \"serviceLevel\": \"PAAS\",\r\n  \"serviceName\": \"VCHSOACSPSMPrivate\",\r\n  \"notificationEmail\": \"<Fill_Here>\",\r\n  \"tags\": [\r\n    {\r\n      \"value\": \"\",\r\n      \"key\": \"\"\r\n    }\r\n  ],\r\n  \"serviceVersion\": \"12cRelease213\",\r\n  \"cloudStorageUser\": \"<Fill_Here>\",\r\n  \"cloudStorageContainer\": \"https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<Fill-namespace>/<Fill-soa-bucket-name>\",\r\n  \"enableNotification\": \"true\",\r\n  \"meteringFrequency\": \"HOURLY\",\r\n  \"cloudStoragePassword\": \"<Fill_Here>\",\r\n  \"serviceDescription\": \"SOACS Cluster on Private network. Requires manual setup for OCI LB.\",\r\n  \"region\": \"eu-frankfurt-1\",\r\n  \"loadBalancerOption\": \"None\",\r\n  \"isBYOL\": \"true\"\r\n}"
+					"raw": "{\r\n  \"enableAdapters\": \"false\",\r\n  \"subnet\": \"ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaa\",\r\n  \"enableAdminConsole\": \"true\",\r\n  \"components\": {\r\n    \"WLS\": {\r\n      \"adminUserName\": \"weblogic\",\r\n      \"shape\": \"VM.Standard2.1\",\r\n      \"isOciRacDb\": \"false\",\r\n      \"dbType\": \"OCINativeDB\",\r\n      \"dbaPassword\": \"<Fill_Here>\",\r\n      \"dbaName\": \"SYS\",\r\n      \"pdbServiceName\": \"soadb_pdb1\",\r\n      \"connectString\": \"//soadb-scan.soaprivate.soavcn.oraclevcn.com:1521/soadb_pdb1.soaprivate.soavcn.oraclevcn.com\",\r\n      \"managedServerCount\": \"2\",\r\n      \"adminPassword\": \"<Fill_Here>\"\r\n    }\r\n  },\r\n  \"availabilityDomain\": \"qLMB:EU-FRANKFURT-1-AD-1\",\r\n  \"purchasePack\": \"soaosbb2b\",\r\n  \"edition\": \"SUITE\",\r\n  \"vmPublicKeyText\": \"<Fill_Here>\",\r\n  \"serviceLevel\": \"PAAS\",\r\n  \"serviceName\": \"VCHSOACSPSMPrivate\",\r\n  \"notificationEmail\": \"<Fill_Here>\",\r\n  \"tags\": [\r\n    {\r\n      \"value\": \"\",\r\n      \"key\": \"\"\r\n    }\r\n  ],\r\n  \"serviceVersion\": \"12cRelease214\",\r\n  \"cloudStorageUser\": \"<Fill_Here>\",\r\n  \"cloudStorageContainer\": \"https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<Fill-namespace>/<Fill-soa-bucket-name>\",\r\n  \"enableNotification\": \"true\",\r\n  \"meteringFrequency\": \"HOURLY\",\r\n  \"cloudStoragePassword\": \"<Fill_Here>\",\r\n  \"serviceDescription\": \"SOACS Cluster on Private network. Requires manual setup for OCI LB.\",\r\n  \"region\": \"eu-frankfurt-1\",\r\n  \"loadBalancerOption\": \"None\",\r\n  \"isBYOL\": \"false\"\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/instancemgmt/:identityDomainId/services/SOA/instances",
@@ -207,11 +283,92 @@
 					"variable": [
 						{
 							"key": "identityDomainId",
-							"value": "{{IDCS_ID}}"
+							"value": "{{IDCS_ID}}",
+							"type": "string"
 						}
 					]
 				},
 				"description": "https://docs.oracle.com/en/cloud/paas/soa-cloud/scsap/op-instancemgmt-domainname-services-soa-instances-post.html"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Service Instance",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-ID-TENANT-NAME",
+						"type": "text",
+						"value": "{{IDCS_ID}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.com.oracle.oracloud.provisioning.Service+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dbaName\": \"SYS\",\r\n  \"dbaPassword\": \"BEstrO0ng_#12\",\r\n  \"forceDelete\": \"false\",\r\n  \"skipBackupOnTerminate\": \"false\"\r\n}"
+				},
+				"url": {
+					"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/instancemgmt/:identityDomainId/services/SOA/instances/:serviceName",
+					"protocol": "https",
+					"host": [
+						"psm",
+						"europe",
+						"oraclecloud",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"paas",
+						"api",
+						"v1.1",
+						"instancemgmt",
+						":identityDomainId",
+						"services",
+						"SOA",
+						"instances",
+						":serviceName"
+					],
+					"variable": [
+						{
+							"key": "identityDomainId",
+							"value": "{{IDCS_ID}}"
+						},
+						{
+							"key": "serviceName",
+							"value": "VCHSOACSPSMPublic"
+						}
+					]
+				},
+				"description": "https://docs.oracle.com/en/cloud/paas/soa-cloud/scsap/op-instancemgmt-identitydomainid-services-soa-instances-servicename-put.html"
 			},
 			"response": []
 		}
