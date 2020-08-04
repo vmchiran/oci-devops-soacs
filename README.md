@@ -9,3 +9,4 @@
 * https://github.com/terraform-providers/terraform-provider-oci
 * https://www.terraform.io/docs/providers/oci/index.html
 * https://github.com/oracle/weblogic-deploy-tooling
+* https://www.oracle.com/a/tech/docs/maa-soacs-dr-oci.pdf
