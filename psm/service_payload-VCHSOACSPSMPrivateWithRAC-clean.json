@@ -6,7 +6,8 @@
     "WLS": {
       "adminUserName": "weblogic",
       "shape": "VM.Standard2.1",
-      "isOciRacDb": "false",
+      "ociRacDBName": "soadb",
+      "isOciRacDb": "true",
       "dbType": "OCINativeDB",
       "dbaPassword": "<Fill_Here>",
       "dbaName": "SYS",
@@ -21,7 +22,7 @@
   "edition": "SUITE",
   "vmPublicKeyText": "<Fill_Here>",
   "serviceLevel": "PAAS",
-  "serviceName": "VCHSOACSPSMPrivate",
+  "serviceName": "VCHSOACSPSMPrivateWithRAC",
   "notificationEmail": "<Fill_Here>",
   "tags": [
     {

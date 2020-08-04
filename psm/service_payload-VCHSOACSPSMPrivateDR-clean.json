@@ -11,17 +11,17 @@
       "dbaPassword": "<Fill_Here>",
       "dbaName": "SYS",
       "pdbServiceName": "soadb_pdb1",
-      "connectString": "//soadb-scan.soaprivate1.vchsoavcn.oraclevcn.com:1521/soadb_pdb1.soaprivate1.vchsoavcn.oraclevcn.com",
+      "connectString": "//soadbdr-scan.soaprivate1.vchsoavcn.oraclevcn.com:1521/soadb_pdb1.soaprivate1.vchsoavcn.oraclevcn.com",
       "managedServerCount": "2",
       "adminPassword": "<Fill_Here>"
     }
   },
-  "availabilityDomain": "qLMB:EU-FRANKFURT-1-AD-1",
+  "availabilityDomain": "qLMB:EU-FRANKFURT-1-AD-2",
   "purchasePack": "soaosbb2b",
   "edition": "SUITE",
   "vmPublicKeyText": "<Fill_Here>",
   "serviceLevel": "PAAS",
-  "serviceName": "VCHSOACSPSMPrivate",
+  "serviceName": "VCHSOACSPSMPrivateDR",
   "notificationEmail": "<Fill_Here>",
   "tags": [
     {
