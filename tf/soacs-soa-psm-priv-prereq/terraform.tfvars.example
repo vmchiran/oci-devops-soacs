@@ -26,9 +26,9 @@ compartment_name = "soa-psm-private"
 vcn_display_name = "soa-vcn"
 vcn_dns_label = "soavcn"
 vcn_cidr = "10.10.0.0/16"
-subnet_bastion_cidr = "10.10.1.0/24"
-subnet_private_cidr = "10.10.2.0/24"
-subnet_lb_private_cidr = "10.10.4.0/24"
+subnet_private_cidr = "10.10.1.0/24"
+subnet_lb_private_cidr = "10.10.3.0/24"
+subnet_bastion_cidr = "10.10.5.0/24"
 
 # Object Storage. Prefix added at apply.
 soa_bucket_name = "soa-bucket"
